@@ -1,0 +1,154 @@
+"""
+====================================================
+🎯 Python Quiz Game
+
+Description:
+A multiple-choice quiz game built using Python.
+The program tests general knowledge and calculates
+the player's final score.
+
+Topics Practiced:
+- Tuples
+- Lists
+- Loops
+- Conditions
+- User Input
+- Indexing
+
+Author: Muhammad Raheel Babar
+====================================================
+"""
+
+
+# ==========================
+# Quiz Questions
+# ==========================
+
+questions = (
+    "What is the capital city of Spain?",
+    "Which animal is known as the King of the Jungle?",
+    "How many days are there in a week?",
+    "Which country has the largest population in the world?",
+    "Who is known as the founder of Microsoft?",
+    "What is the official currency used in Spain?",
+    "What is the currency of Japan?",
+    "Which city is the capital of the Asturias region in Spain?",
+    "Who is the current head of the Principality of Asturias?",
+    "Which mountain range separates Spain and France?"
+)
+
+
+# ==========================
+# Answer Options
+# ==========================
+
+options = (
+    ("A. London", "B. Paris", "C. Rome", "D. Madrid"),
+    ("A. Tiger", "B. Elephant", "C. Lion", "D. Bear"),
+    ("A. 5", "B. 6", "C. 7", "D. 8"),
+    ("A. India", "B. China", "C. United States", "D. Russia"),
+    ("A. Steve Jobs", "B. Bill Gates", "C. Elon Musk", "D. Mark Zuckerberg"),
+    ("A. Dollar", "B. Pound", "C. Euro", "D. Peso"),
+    ("A. Dollar", "B. Euro", "C. Yen", "D. Pound"),
+    ("A. Barcelona", "B. Oviedo", "C. Valencia", "D. Seville"),
+    ("A. King Felipe VI", "B. Queen Letizia", "C. Princess Leonor", "D. Princess Sofía"),
+    ("A. Alps", "B. Pyrenees", "C. Andes", "D. Himalayas")
+)
+
+
+# ==========================
+# Correct Answers
+# ==========================
+
+answers = (
+    "D",
+    "C",
+    "C",
+    "B",
+    "B",
+    "C",
+    "C",
+    "B",
+    "C",
+    "B"
+)
+
+
+# ==========================
+# Quiz Variables
+# ==========================
+
+guesses = []
+
+score = 0
+
+question_num = 0
+
+
+# ==========================
+# Quiz System
+# ==========================
+
+for question in questions:
+
+    print("\n---------------------------")
+    print(f"Question {question_num + 1}")
+    print(question)
+
+    for option in options[question_num]:
+        print(option)
+
+    guess = input("Enter your answer (A/B/C/D): ").upper()
+
+    guesses.append(guess)
+
+
+    if guess == answers[question_num]:
+        score += 1
+        print("✅ CORRECT!")
+
+    else:
+        print("❌ INCORRECT!")
+        print(f"Correct answer: {answers[question_num]}")
+
+
+    question_num += 1
+
+
+# ==========================
+# Final Results
+# ==========================
+
+print("\n===========================")
+print("        FINAL RESULTS")
+print("===========================")
+
+
+print("\nCorrect Answers:")
+
+for answer in answers:
+    print(answer, end=" ")
+
+print("\n\nYour Answers:")
+
+for guess in guesses:
+    print(guess, end=" ")
+
+
+score = int(score / len(questions) * 100)
+
+
+print(f"\n\nYour Final Score: {score}%")
+
+
+if score == 100:
+    print("🏆 Perfect Score! Excellent!")
+
+elif score >= 70:
+    print("🔥 Great Job!")
+
+elif score >= 50:
+    print("👍 Good Effort!")
+
+else:
+    print("📚 Keep Practicing!")
